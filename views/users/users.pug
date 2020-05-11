@@ -1,21 +1,26 @@
 extends ../layout/common.pug
 
 block content
- h1 User
+  .container
+    h1.text-center.mt-4 User
+      table.table
+        thead.thead-dark
+          tr
+            th.text-center Name
+            th.text-center Action
+          each user in users
+             tr
+              td.text-center= user.name
+                td.text-center
+                  a.btn.btn-primary(href="/users/" + user.id + "/update") Edit
+                  a.btn.btn-primary(href="/users/" + user.id + "/delete") Delete
+    br
+    h3.text-center.mt-4 Add user
+    form.form-group.mt-4(method="POST")
 
-    ul
-      each user in users
-        li
-          span= user.name
-          span= ' - '
-          a(href="/users/" + user.id + "/update") Edit
-          span= ' - '
-          a(href="/users/" + user.id + "/delete") Delete
-
-    h3 Add user
-    form(method="POST")
-      lable name:
-      br
-      input(type="text", name="name")
-      button Add
+        lable name:
+        br
+        input.form-control(type="text", name="name")
+        br
+        button.btn.btn-success Add
 

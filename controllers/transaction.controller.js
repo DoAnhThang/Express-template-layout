@@ -26,9 +26,25 @@ module.exports.postCreate = (req, res) => {
     .get("books")
     .find({ id: bookId })
     .value().title;
-  var transaction = { id, userId, bookId, userName, bookTitle };
+  var transaction = {
+    id,
+    userId,
+    bookId,
+    userName,
+    bookTitle,
+    content: `${userName.name} got ${bookTitle.title}.`,
+    isComplete: false
+  };
   db.get("trans")
     .push(transaction)
     .write();
   res.redirect("/trans");
 };
+
+module.exports.complete = (req, res) => {
+  db.get("trans")
+    .find({ id: req.params.id })
+    .assign({ isComplete: true })
+    .write();
+  res.redirect("/trans");
+}

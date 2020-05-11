@@ -1,5 +1,15 @@
 html
   head
-  link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+    link(rel="stylesheet", href="../public/custom.css")
   body
-    block content
+    nav.navbar.navbar-expand-sm.navbar-dark.bg-danger
+      a.navbar-brand Library Manager
+      ul.navbar-nav
+          li.nav-item
+            a.nav-link(href='/users') Users
+          li.nav-item
+            a.nav-link(href='/books') Books
+          li.nav-item
+            a.nav-link(href='/trans') Transactions
+  block content
