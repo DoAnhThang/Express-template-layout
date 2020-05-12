@@ -10,22 +10,6 @@ module.exports.index = function(req, res) {
 
 module.exports.postIndex = function(req, res) {
   req.body.id = shortid.generate();
-  var errs = [];
-  if(!req.body.name){
-    errs.push('name is required.')
-  }
-  if(req.body.name.split("").length > 30){
-    errs.push('name is required.')
-  }
-  if(errs.length){
-    res.render("users/users", {
-      users: db.get("users").value(),
-      errs,
-      values: req.body
-    });
-
-    return;
-  }
   db.get("users")
     .push(req.body)
     .write();

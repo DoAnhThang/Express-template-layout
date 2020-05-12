@@ -3,11 +3,11 @@ const router = express.Router();
 
 
 var controllerUser = require("../controllers/user.controller.js")
-
+var validateUser = require("../validate/user.validate.js")
 
 router.get("/", controllerUser.index);
 
-router.post("/", controllerUser.postIndex);
+router.post("/", validateUser.postCreate, controllerUser.postIndex);
 
 router.get("/:id/update", controllerUser.getUpdate);
 

@@ -32,7 +32,7 @@ module.exports.postCreate = (req, res) => {
     bookId,
     userName,
     bookTitle,
-    content: `${userName.name} got ${bookTitle.title}.`,
+    content: `${userName} got ${bookTitle}.`,
     isComplete: false
   };
   db.get("trans")
