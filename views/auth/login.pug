@@ -1,0 +1,22 @@
+extends ../layout/common.pug
+
+block content
+  .container
+  h3.text-center.mt-4 Login
+    
+  if errs
+    each err in errs
+      .alert.alert-danger= err
+        
+  form.form-group.mt-4(method="POST")
+
+      lable email:
+      br
+      input.form-control(type="text", name="email")
+      br
+      able password:
+      br
+      input.form-control(type="text", name="password")
+      br
+      button.btn.btn-success Add
+

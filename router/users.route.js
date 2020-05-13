@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-
-var controllerUser = require("../controllers/user.controller.js")
-var validateUser = require("../validate/user.validate.js")
+var controllerUser = require("../controllers/user.controller.js");
+var validateUser = require("../validate/user.validate.js");
+var middleware = require("../middleware/auth.middleware.js")
 
 router.get("/", controllerUser.index);
 
