@@ -15,7 +15,7 @@ app.set("views", "./views");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+app.use(cookieParser("adasdaszxcjdq12345"));
 
 app.use("/books",middleware.requireAuth, bookRouter);
 app.use("/users",middleware.requireAuth, userRouter);
